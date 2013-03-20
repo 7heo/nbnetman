@@ -1,7 +1,7 @@
 nbnetman
 ========
 
-NetBSD man command fetched from WWW man pages.
+NetBSD MAN(1) command alike script, which fetches data from WWW man pages.
 
 Dependencies
 ============
