@@ -1,0 +1,26 @@
+#!/bin/sh
+
+case $# in
+	3)
+	command=$3
+	part=$2
+	version=$1
+	;;
+	2)
+	command=$2
+	part=$1
+	version="NetBSD-current"
+	;;
+	1)
+	command=$1
+	part=""
+	version="NetBSD-current"
+	;;
+	*)
+	echo "Syntax: $0 [[collection] section] page"
+	exit
+esac
+
+#curl -Ss http://netbsd.gw.com/cgi-bin/man-cgi?$command+$part+NetBSD-current | sed '/<.\?pre>/Id' | html2text -width $(tput cols) | less
+
+curl -Ss http://netbsd.gw.com/cgi-bin/man-cgi?$command+$part+$version | html2text | less
